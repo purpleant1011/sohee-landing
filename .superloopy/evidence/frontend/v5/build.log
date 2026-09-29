@@ -1,0 +1,62 @@
+
+> sohee-landing@1.0.0 build:worker
+> opennextjs-cloudflare build
+
+
+┌─────────────────────────────┐
+│ OpenNext — Cloudflare build │
+└─────────────────────────────┘
+
+App directory: /Volumes/Development/소희 프로젝트/landing
+Next.js version : 16.3.6
+@opennextjs/cloudflare version: 1.20.6
+@opennextjs/aws version: 4.1.4
+workerd compatibility_date: 2026-09-29
+
+┌─────────────────────────────────┐
+│ OpenNext — Building Next.js app │
+└─────────────────────────────────┘
+
+
+> sohee-landing@1.0.0 build
+> next build --webpack
+
+▲ Next.js 16.3.6 (webpack)
+✓ Running next.config.ts took 2.0s
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 23.4s
+  Running TypeScript ...
+  Finished TypeScript in 6.3s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/2) ...
+✓ Generating static pages using 4 workers (2/2) in 12.7s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ƒ /
+└ ○ /_not-found
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+┌──────────────────────────────┐
+│ OpenNext — Generating bundle │
+└──────────────────────────────┘
+
+(node:75519) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Bundling middleware function...
+Bundling static assets...
+Bundling cache assets...
+Building server function: default...
+Applying code patches: 3.693s
+# copyPackageTemplateFiles
+[35m⚙️ Bundling the OpenNext server...
+[0m
+[35mWorker saved in `.open-next/worker.js` 🚀
+[0m
+OpenNext build complete.

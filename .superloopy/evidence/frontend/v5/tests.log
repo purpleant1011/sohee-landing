@@ -1,0 +1,56 @@
+
+> sohee-landing@1.0.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: SSR delivers semantic content and isolated assets before JavaScript
+ok 1 - SSR delivers semantic content and isolated assets before JavaScript
+  ---
+  duration_ms: 1794.275209
+  type: 'test'
+  ...
+# Subtest: unknown routes return 404 without exposing removed client assets
+ok 2 - unknown routes return 404 without exposing removed client assets
+  ---
+  duration_ms: 70.97275
+  type: 'test'
+  ...
+# Subtest: landing uses request-time server rendering
+ok 3 - landing uses request-time server rendering
+  ---
+  duration_ms: 28.193125
+  type: 'test'
+  ...
+# Subtest: production routes are restricted to the landing page and its assets
+ok 4 - production routes are restricted to the landing page and its assets
+  ---
+  duration_ms: 3.840084
+  type: 'test'
+  ...
+# Subtest: each industry covers planning, conversation, booking/deposit and reporting
+ok 5 - each industry covers planning, conversation, booking/deposit and reporting
+  ---
+  duration_ms: 0.6185
+  type: 'test'
+  ...
+# Subtest: unknown industries safely fall back to the default
+ok 6 - unknown industries safely fall back to the default
+  ---
+  duration_ms: 0.072875
+  type: 'test'
+  ...
+# Subtest: downloaded brief identifies examples and includes all steps without a sales guarantee
+ok 7 - downloaded brief identifies examples and includes all steps without a sales guarantee
+  ---
+  duration_ms: 0.160125
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1955.739458
