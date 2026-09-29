@@ -34,9 +34,9 @@ Uploaded 8 of 8 assets
 Total Upload: 5280.09 KiB / gzip: 1080.11 KiB
 Worker Startup Time: 18 ms
 Your Worker has access to the following bindings:
-Binding                                        Resource      
-env.WORKER_SELF_REFERENCE (sohee-landing)      Worker        
-env.ASSETS                                     Assets        
+Binding                                        Resource
+env.WORKER_SELF_REFERENCE (sohee-landing)      Worker
+env.ASSETS                                     Assets
 
 Uploaded sohee-landing (13.43 sec)
 Deployed sohee-landing triggers (1.43 sec)
@@ -44,11 +44,9 @@ Deployed sohee-landing triggers (1.43 sec)
   sohee.ai.kr/landing (zone id: bce86a3a437596e88e16c53ae1735262)
   sohee.ai.kr/landing/* (zone id: bce86a3a437596e88e16c53ae1735262)
 Current Version ID: bd241c63-ee97-4036-9efc-a3b79484f025
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mWarning: The following routes will attempt to serve Assets on a configured path:[0m
+▲ [WARNING] Warning: The following routes will attempt to serve Assets on a configured path:
 
     • sohee.ai.kr/landing (Will match assets: .open-next/assets/landing)
     • sohee.ai.kr/landing/* (Will match assets: .open-next/assets/landing/*)
-  
+
   Requests not matching an asset will be forwarded to the Worker's code.
-
-
