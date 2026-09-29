@@ -11,7 +11,7 @@
 왼쪽: '사장님은 가게에. 마케팅은 소희에게.' 오른쪽: 원본 소희 캐릭터를 유지한 매장 일러스트. 이미지 아래 이름·직무 표시, 작은 업무 메시지. 핵심 행동은 '소희가 일하는 방식 보기', 보조 행동은 '우리 가게에 맡겨보기'로 같은 페이지의 실제 데모로 이동.
 
 ## Page sequence
-직원 소개 → 고객을 놓치는 순간 → 하나의 목표를 끝까지 잇는 업무 → 업종별 인터랙티브 예시 → 사장님과 소희의 역할 → 구독의 가치 → FAQ → 마무리 CTA.
+직원 소개 → 목표 하나를 끝까지 잇는 일러스트와 4단계 도식 → 먼저 제안하는 아침 브리핑 → 1:1 대화에서 예약·예약금 확인으로 이어지는 장면 → 업종별 인터랙티브 예시 → 사장님과 소희의 역할 → 시작·성장·운영 비교(가격 없음) → FAQ → 마무리 CTA.
 
 ## Typography and spacing
 Self-host Pretendard Variable for Korean. Display 48–76px desktop, 40–48px mobile, tracking -0.035em. Body 16–19px. Max content 1200px, roomy section spacing 100–128px, mobile 64–80px. No generic repeated feature-card wall, no gradients, no testimonials or unsupported metrics.
@@ -20,4 +20,7 @@ Self-host Pretendard Variable for Korean. Display 48–76px desktop, 40–48px m
 업종 3개와 업무 단계 4개를 선택하면 실제 텍스트 예시가 바뀐다. 키보드로 조작 가능. 모션은 히어로 업무 메시지의 단 한 번 등장에 한정. prefers-reduced-motion 지원. FAQ는 native details.
 
 ## Verification
-Ego Lite로 원본과 로컬 결과 확인. 모바일/데스크톱 레이아웃과 CTA·업종·단계 선택 확인. 화면 캡처는 safe-appshot만 사용. 메인 에이전트가 통합 검토 1회.
+Ego Lite로 원본과 로컬 결과 확인. 모바일/데스크톱 레이아웃과 CTA·업종·단계 선택 확인. safe-appshot의 창 선택 문제를 확인한 뒤, 내장 Appshot 대신 작업 범위가 명확한 Ego Lite p1 페이지 캡처를 사용. 메인 에이전트가 통합 검토 1회.
+
+## V2 source-led refinement
+V0.91 제품/직원/고객 흐름/Owner UX/5차 UX 청사진을 읽고, 기다리는 도구보다 먼저 제안하는 직원이라는 방향을 강화했다. 생성 이미지에는 읽기 어려운 글자를 넣지 않고 HTML의 번호·설명·연결선으로 업무를 풀었다. 모바일은 수직 흐름으로 전환한다. 보라와 크림은 기존 캐릭터와 브랜드에 따른 의도적 선택이다.

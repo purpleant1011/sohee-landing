@@ -23,3 +23,17 @@ test("production build keeps all internal links and assets under /landing", asyn
   assert.match(html, /예약금/);
   assert.match(html, /성과 리포트/);
 });
+
+test("landing explains responsibility levels without prices or simulated signup", async () => {
+  const html = await readFile(path.join(root, "index.html"), "utf8");
+  const plans = html.slice(
+    html.indexOf('id="plans"'),
+    html.indexOf('id="faq"'),
+  );
+  for (const tier of ["시작", "성장", "운영"]) assert.ok(plans.includes(tier));
+  assert.doesNotMatch(html, /[₩$]|[0-9][0-9,]*\s*(?:원|만원)/);
+  assert.doesNotMatch(html, /<form|type="submit"/);
+  assert.match(html, /입금 확인 대기/);
+  assert.match(html.replace(/\s+/g, " "), /실제 고객 대화나 성과가 아니/);
+  assert.match(html, /sohee-mission-map.webp/);
+});
