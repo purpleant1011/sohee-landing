@@ -37,3 +37,27 @@ test("landing explains responsibility levels without prices or simulated signup"
   assert.match(html.replace(/\s+/g, " "), /실제 고객 대화나 성과가 아니/);
   assert.match(html, /sohee-mission-map.webp/);
 });
+
+test("pilot evidence distinguishes verified execution from future outcomes", async () => {
+  const html = (await readFile(path.join(root, "index.html"), "utf8")).replace(
+    /\s+/g,
+    " ",
+  );
+  assert.match(html, /사장님 승인 후/);
+  assert.match(
+    html,
+    /실제 문의·예약 연결과 마케팅 시간 절감은 다음 현장 검증 과제/,
+  );
+  assert.match(
+    html,
+    /현재 채널의 실시간 상태나 고객 유입 성과를 뜻하지 않습니다/,
+  );
+  for (const file of [
+    "sohee-pilot-content.webp",
+    "sohee-pilot-publishing.webp",
+  ]) {
+    assert.ok(html.includes(file));
+    assert.ok((await stat(path.join(root, "public/images", file))).size > 0);
+  }
+  assert.doesNotMatch(html, /파일럿.*?계약금|무상 파일럿|[0-9]+%.*?매출/);
+});

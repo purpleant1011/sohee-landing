@@ -22,3 +22,6 @@ purpleant1011/real-sohee main의 src/features/marketing 원본, public/images/ma
 - 사장님의 운영 기준과 결정권을 존중한다.
 ## Implementation assumptions
 정적 HTML/CSS/JavaScript로 구현해 인증·DB 의존성을 제거한다. 기존 랜딩의 서비스 사실과 캐릭터를 이식하고 시각 구조는 전면 교체한다. 사용자 자율 실행 지시에 따라 디자인 선택과 구현은 메인 에이전트가 진행한다.
+
+## Proposal evidence update
+2026년 공모전 최종본 및 수정본에서 확인한 현재 범위는 바이름 청라점 파일럿과 매장 정보 반영 → 콘텐츠 준비 → 승인 → 외부 채널 게시의 기본 흐름이다. 문의·예약 전환, 시간 절감, 반복 유료 사용은 다음 검증 과제다. 게시 성공을 매출 성과로 표현하지 않는다. 외부 게시 전 사장님 확인·수정·승인을 강조한다. 구독 구성은 확정 판매 조건이 아니다. 자세한 출처와 자료 간 차이는 docs/research/2026-09-29-proposal-refinement.md 참조.

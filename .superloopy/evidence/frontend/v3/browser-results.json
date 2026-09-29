@@ -1,0 +1,31 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "brokenImages": []
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "brokenImages": []
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "brokenImages": []
+  },
+  {
+    "width": 320,
+    "overflow": false,
+    "brokenImages": []
+  },
+  {
+    "evidenceOpen": true
+  },
+  {
+    "menuOpen": "true"
+  },
+  {
+    "keyboardTab": "step-1"
+  }
+]
