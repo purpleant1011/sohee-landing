@@ -9,3 +9,8 @@ dist/
 
 .reference/
 .improve/
+
+.next/
+.open-next/
+*.tsbuildinfo
+.dev.vars
