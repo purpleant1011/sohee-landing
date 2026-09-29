@@ -1,11 +1,17 @@
 {
-  // Prepared only. Production deployment requires the owner's separate instruction.
   "name": "sohee-landing",
+  "account_id": "aa4d9fd90f0d63c0ae1384805ccfb277",
   "compatibility_date": "2026-09-29",
   "workers_dev": true,
+  // Only these two paths belong to this deployment. Never add a root wildcard
+  // or custom_domain: the existing real-sohee Worker owns the main website.
+  "routes": [
+    { "pattern": "sohee.ai.kr/landing", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
+    { "pattern": "sohee.ai.kr/landing/*", "zone_id": "bce86a3a437596e88e16c53ae1735262" }
+  ],
   "assets": {
     "directory": "./dist",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page",
-  },
+    "not_found_handling": "404-page"
+  }
 }

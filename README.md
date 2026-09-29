@@ -42,29 +42,38 @@ npm run preview
 - 채널별 연결 방식과 승인 범위에 따라 가능한 업무가 달라집니다.
 - 기존 문서의 15/30/50만 원 요금은 현재 판매 조건이 확인되지 않아 페이지에 확정 가격으로 넣지 않았습니다.
 
-## Cloudflare 배포 준비 — 아직 배포하지 않음
+## Cloudflare 운영 배포
 
-목표 주소는 **https://sohee.ai.kr/landing** 입니다. `/landing`은 `/landing/`으로 정규화될 수 있으며 모든 자산은 `/landing/` 아래에 있습니다.
+접속 주소: **https://sohee.ai.kr/landing**. `/landing`은 `/landing/`으로 정규화되며 모든 에셋은 `/landing/` 아래에 있습니다.
 
-`wrangler.jsonc`는 별도 `sohee-landing` Worker의 Static Assets 설정만 포함합니다. 운영 도메인 라우트와 자동 배포 CI는 아직 연결하지 않았습니다. GitHub 푸시만으로 이 프로젝트가 운영 사이트를 변경하지 않습니다.
+별도 `sohee-landing` Worker가 아래 두 경로만 담당합니다.
 
-사용자가 배포를 지시하면 다음 순서로 진행합니다.
+- `sohee.ai.kr/landing`
+- `sohee.ai.kr/landing/*`
 
-1. 기존 Cloudflare `real-sohee` Worker와 `sohee.ai.kr` zone의 라우트 소유권을 확인합니다.
-2. `npm run check && npm test && npm run build` 후 이 저장소의 **별도** `sohee-landing` Worker에 배포합니다.
-3. 프리뷰 도메인에서 `/landing/` HTML, 폰트, 이미지, ES module, 다운로드를 검증합니다.
-4. 해당 zone에 정확한 `sohee.ai.kr/landing` 및 `sohee.ai.kr/landing/*` 경로 라우트를 추가합니다. 기존 루트·앱·관리자 라우트와 기존 Worker를 교체하지 않습니다.
-5. 실제 도메인의 페이지·자산을 확인하고 기존 `/`, `/app`, `/admin`의 라우팅이 유지되는지 점검합니다.
+기존 `real-sohee` Worker, `sohee.ai.kr/*`, `www.sohee.ai.kr/*` 및 custom domain 연결은 유지합니다. **루트 와일드카드 또는 custom_domain을 이 설정에 추가하지 마세요.** DNS 변경, 기존 앱 재배포는 필요하지 않습니다. 경로 격리는 `tests/deployment.test.mjs`로 검사합니다.
 
-예상 배포 명령은 `wrangler deploy`입니다. Wrangler는 이 프로젝트의 런타임 의존성이 아니며, 실제 배포 시 인증된 Cloudflare 환경에서 사용합니다. 계정 ID·인증 토큰은 저장소에 기록하지 않습니다.
+수동 업데이트:
 
-롤백은 추가한 두 landing 라우트를 제거하거나 별도 Worker의 직전 버전을 복원하는 방식으로 수행합니다. 기존 앱 Worker를 다시 배포할 필요가 없습니다.
+```sh
+npm run check
+npm test
+npx --yes wrangler@4 whoami
+npx --yes wrangler@4 deploy --dry-run
+npx --yes wrangler@4 deploy
+```
+
+테스트가 production build를 실행합니다. Wrangler는 런타임 의존성이 아니며 OAuth 인증 토큰은 로컬 자격 증명 저장소에서 읽습니다. GitHub 푸시 자동 배포는 설정하지 않았습니다.
+
+롤백은 이 프로젝트의 두 landing 라우트만 제거하거나 별도 Worker의 이전 버전을 복원합니다. 기존 앱 Worker나 전체 도메인 라우트를 변경하지 마세요.
+
+배포 검증: `.superloopy/evidence/deployment/verification.md`.
 
 ## 검증
 
-- Node 내장 테스트: 4개. 업종별 4단계, 잘못된 업종의 기본값, 다운로드 예시 표시, 빌드 자산·앵커·경로 검증.
+- Node 내장 테스트: 7개. 업종별 4단계, 잘못된 업종의 기본값, 다운로드 예시 표시, 빌드 자산·앵커·경로 검증.
 - Ego Lite: 12개 업종·단계 조합, 키보드 Home/ArrowRight, 모바일 메뉴/Escape, FAQ, 실제 파일 다운로드.
 - 반응형: 320 / 390 / 768 / 1024 / 1440px에서 가로 넘침과 텍스트 이탈 검사.
-- 실제 Cloudflare 배포와 라이브 검증은 사용자 배포 지시 전까지 미실행.
+- 2026-09-29: 사용자 지시에 따라 경로 분리 배포 및 라이브 검증 완료.
 
 브랜드 원본 자산의 권리는 원 서비스 소유자에게 있습니다. Pretendard의 OFL 라이선스는 `public/fonts/OFL.txt`에 포함했습니다.
