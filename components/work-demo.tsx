@@ -1,4 +1,5 @@
 "use client";
+import { SoheeCharacter } from "@/components/sohee-character";
 import { useState } from "react";
 import {
   ArrowDown,
@@ -122,13 +123,7 @@ export function WorkDemo() {
             </div>
             <div className="demo-conversation">
               <div className="flex items-center gap-3 border-b border-border pb-4">
-                <img
-                  src="/landing/images/sohee-guide.webp"
-                  width="48"
-                  height="48"
-                  alt=""
-                  className="avatar"
-                />
+                <SoheeCharacter alt="" className="avatar" />
                 <div>
                   <p className="font-semibold">소희의 업무 노트</p>
                   <p className="mt-1 text-xs text-muted-foreground">

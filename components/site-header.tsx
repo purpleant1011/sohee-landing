@@ -43,7 +43,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <a href="#demo">
-              우리 가게에 맡겨보기
+              우리 업종 예시 보기
               <ArrowUpRight aria-hidden="true" />
             </a>
           </Button>
@@ -58,7 +58,7 @@ export function SiteHeader() {
                 <Menu aria-hidden="true" />
               </Button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="w-[min(88vw,400px)] gap-5 p-7">
               <SheetTitle className="mt-8 text-2xl font-bold">
                 소희를 만나보세요.
               </SheetTitle>

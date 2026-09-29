@@ -36,8 +36,12 @@ export function FAQ() {
     <Accordion type="single" collapsible defaultValue="0">
       {faqs.map(([question, answer], i) => (
         <AccordionItem value={String(i)} key={question}>
-          <AccordionTrigger>{question}</AccordionTrigger>
-          <AccordionContent>{answer}</AccordionContent>
+          <AccordionTrigger className="py-6 text-lg font-semibold">
+            {question}
+          </AccordionTrigger>
+          <AccordionContent className="pb-6 text-base leading-relaxed text-muted-foreground">
+            {answer}
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

@@ -1,0 +1,214 @@
+{
+  "sizes": [
+    {
+      "width": 1440,
+      "scrollWidth": 1430,
+      "characters": [
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 150,
+          "height": 210,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "매장 정보를 배우는 소희"
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 260,
+          "height": 280,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "함께 일할 준비를 마친 AI 마케팅 직원 소희"
+        }
+      ],
+      "broken": []
+    },
+    {
+      "width": 768,
+      "scrollWidth": 758,
+      "characters": [
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 150,
+          "height": 210,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "매장 정보를 배우는 소희"
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 170,
+          "height": 210,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "함께 일할 준비를 마친 AI 마케팅 직원 소희"
+        }
+      ],
+      "broken": []
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "characters": [
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 150,
+          "height": 210,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "매장 정보를 배우는 소희"
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 150,
+          "height": 170,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "함께 일할 준비를 마친 AI 마케팅 직원 소희"
+        }
+      ],
+      "broken": []
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "characters": [
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 51.9375,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 56,
+          "height": 56,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": ""
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 150,
+          "height": 210,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "매장 정보를 배우는 소희"
+        },
+        {
+          "fit": "contain",
+          "clip": "none",
+          "mask": "none",
+          "radius": "0px",
+          "width": 150,
+          "height": 170,
+          "naturalWidth": 926,
+          "naturalHeight": 1698,
+          "alt": "함께 일할 준비를 마친 AI 마케팅 직원 소희"
+        }
+      ],
+      "broken": []
+    }
+  ],
+  "errors": [],
+  "menu": true,
+  "keyboard": true,
+  "cta": true,
+  "industry": true,
+  "download": "소희-클래스-스튜디오-업무예시.txt"
+}

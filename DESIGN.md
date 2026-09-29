@@ -37,3 +37,10 @@ CTA는 실제 페이지 내 체험으로 이동한다. 예약·입금·카카오
 
 ## 검토 기록
 메인 에이전트가 Ego Lite의 지정 페이지에서 데스크톱·모바일을 묶어 검토한다. 첫 검토에서 이미지 캡션 겹침, 캐릭터 크롭, 업종 탭 줄바꿈을 찾아 한 배치로 수정했다. 접근성 검사에서는 브라우저 확장이 삽입한 iframe과 브라우저 도구 Shadow DOM을 사이트 검사와 분리했다. 최종 증거는 `.superloopy/evidence/frontend/v5/verification.md`에 기록한다.
+
+## Requirement review and character protection
+2026-09-29 후속 검토: 공식 shadcn 4.21.0 CLI로 Button/Tabs/Accordion/Sheet/Card/Badge/Separator를 도입하고 브랜드 토큰·충분한 터치 영역·한국어 레이블을 적용했다. Tailwind 4.3.3은 npm 최신 릴리스와 동일하다. 9개 섹션은 components/landing의 서버 컴포넌트로 분리한다.
+
+히어로는 영업 후에도 남는 홍보 일을 문제로, 연결 업무는 해결책으로, 시간·고객 방문·다음 홍보의 근거는 기대효과로 설명한다. CTA는 가입 없는 업종별 업무 예시와 저장이라는 실제 행동을 약속한다.
+
+전신 캐릭터는 SoheeCharacter로 통일한다. 원본 926×1698 비율, object-fit: contain, border-radius: 0, clip-path/mask 없음이 불변 조건이다. 이미지 응답 성공만으로 검증하지 않고 각 화면 크기에서 실제 캐릭터의 머리부터 발끝까지 확인한다. 마지막 섹션의 기존 cover 크롭과 둥근 마스크를 제거했다.

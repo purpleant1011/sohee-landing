@@ -9,6 +9,15 @@
   --color-muted-foreground: #69616f;
   --color-border: #ded9e1;
   --color-ring: #74529d;
+  --color-card: #fffefa;
+  --color-card-foreground: #292333;
+  --color-accent: #ebe6f0;
+  --color-accent-foreground: #292333;
+  --color-secondary-foreground: #292333;
+  --color-input: #ded9e1;
+  --color-destructive: #b43737;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --font-sans: var(--font-pretendard), sans-serif;
 }
 @layer base {
@@ -605,9 +614,9 @@
   .closing-character {
     width: 260px;
     height: 280px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    border-radius: 50% 50% 14px 14px;
+    border-radius: 0;
   }
 }
 @keyframes note-arrive {
@@ -902,5 +911,100 @@
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Shared whole-character invariant: contain the entire original illustration. */
+.sohee-character {
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  mask-image: none !important;
+}
+.outcome-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 32px 0 10px;
+}
+.outcome-strip > div {
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+}
+.outcome-strip h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.outcome-strip p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-muted-foreground);
+}
+@media (max-width: 640px) {
+  .outcome-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Registry components adopt Sohee's spacious, keyboard-friendly workbench. */
+[data-slot="tabs-list"] {
+  min-height: 52px;
+  height: auto;
+  padding: 4px;
+}
+[data-slot="tabs-trigger"] {
+  min-height: 44px;
+  height: auto;
+  font-weight: 600;
+  color: var(--color-muted-foreground);
+}
+[data-slot="tabs-trigger"][data-state="active"] {
+  background: var(--color-foreground);
+  color: var(--color-background);
+  box-shadow: none;
+}
+.demo-layout[data-slot="tabs"] {
+  display: grid;
+  gap: 28px;
+}
+.stage-list[data-slot="tabs-list"] {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: start;
+  background: transparent;
+  padding: 0;
+  gap: 8px;
+}
+.stage-tab[data-slot="tabs-trigger"] {
+  flex: 0;
+  min-height: 60px;
+  white-space: normal;
+  text-align: left;
+  justify-content: start;
+  padding: 12px;
+}
+.demo-panel[data-slot="tabs-content"]:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 4px;
+}
+.reminder-connector > [data-slot="separator"] {
+  width: auto;
+}
+[data-slot="accordion-item"] {
+  border-color: var(--color-border);
+}
+@media (max-width: 800px) {
+  .stage-list[data-slot="tabs-list"] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .stage-tab[data-slot="tabs-trigger"] {
+    min-height: 54px;
+    padding: 10px;
   }
 }
