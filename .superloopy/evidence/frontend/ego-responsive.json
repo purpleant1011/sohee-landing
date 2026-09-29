@@ -1,0 +1,40 @@
+[
+  {
+    "menuOpen": true,
+    "navVisible": true
+  },
+  {
+    "escapeCloses": true
+  },
+  {
+    "width": 320,
+    "overflow": false,
+    "offscreen": []
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "offscreen": []
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "offscreen": []
+  },
+  {
+    "width": 1024,
+    "overflow": false,
+    "offscreen": []
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "offscreen": []
+  },
+  {
+    "faqOpens": true
+  },
+  {
+    "download": "소희-뷰티-살롱-업무예시.txt"
+  }
+]

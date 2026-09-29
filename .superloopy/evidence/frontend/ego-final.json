@@ -1,0 +1,15 @@
+{
+  "desktop": {
+    "width": 1440,
+    "overflow": false,
+    "captionClear": true,
+    "headingFont": "61.2px",
+    "bodyFont": "19px"
+  },
+  "mobile": {
+    "width": 390,
+    "overflow": false,
+    "goalWidth": 260,
+    "labelOnOwnRow": true
+  }
+}

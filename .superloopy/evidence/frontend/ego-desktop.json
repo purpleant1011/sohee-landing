@@ -1,0 +1,94 @@
+[
+  {
+    "industry": "뷰티·살롱",
+    "step": "1알리고",
+    "title": "빈 시간에 맞는 제안부터 만들어요.",
+    "hasBody": true,
+    "panelLabel": "step-0"
+  },
+  {
+    "industry": "뷰티·살롱",
+    "step": "2대화하고",
+    "title": "“얼마예요?”에서 대화를 끝내지 않아요.",
+    "hasBody": true,
+    "panelLabel": "step-1"
+  },
+  {
+    "industry": "뷰티·살롱",
+    "step": "3예약으로 잇고",
+    "title": "고객이 오기로 한 시간까지 챙겨요.",
+    "hasBody": true,
+    "panelLabel": "step-2"
+  },
+  {
+    "industry": "뷰티·살롱",
+    "step": "4더 잘되게",
+    "title": "무엇이 예약으로 이어졌는지 알려드려요.",
+    "hasBody": true,
+    "panelLabel": "step-3"
+  },
+  {
+    "industry": "꽃집·공방",
+    "step": "1알리고",
+    "title": "손님이 찾을 이유를 먼저 만들어요.",
+    "hasBody": true,
+    "panelLabel": "step-0"
+  },
+  {
+    "industry": "꽃집·공방",
+    "step": "2대화하고",
+    "title": "선물하는 마음까지 물어봐요.",
+    "hasBody": true,
+    "panelLabel": "step-1"
+  },
+  {
+    "industry": "꽃집·공방",
+    "step": "3예약으로 잇고",
+    "title": "주문과 픽업을 한 흐름으로 챙겨요.",
+    "hasBody": true,
+    "panelLabel": "step-2"
+  },
+  {
+    "industry": "꽃집·공방",
+    "step": "4더 잘되게",
+    "title": "다음 주에 더 잘 팔릴 단서를 찾아요.",
+    "hasBody": true,
+    "panelLabel": "step-3"
+  },
+  {
+    "industry": "클래스·스튜디오",
+    "step": "1알리고",
+    "title": "처음 오는 손님의 망설임을 풀어요.",
+    "hasBody": true,
+    "panelLabel": "step-0"
+  },
+  {
+    "industry": "클래스·스튜디오",
+    "step": "2대화하고",
+    "title": "반복 질문도 다정하게 답해요.",
+    "hasBody": true,
+    "panelLabel": "step-1"
+  },
+  {
+    "industry": "클래스·스튜디오",
+    "step": "3예약으로 잇고",
+    "title": "실제 남은 자리에 예약을 연결해요.",
+    "hasBody": true,
+    "panelLabel": "step-2"
+  },
+  {
+    "industry": "클래스·스튜디오",
+    "step": "4더 잘되게",
+    "title": "체험을 부르는 이야기를 찾아요.",
+    "hasBody": true,
+    "panelLabel": "step-3"
+  },
+  {
+    "keyboardHome": true,
+    "selected": "true"
+  },
+  {
+    "keyboardArrow": true,
+    "selected": "true"
+  }
+]
