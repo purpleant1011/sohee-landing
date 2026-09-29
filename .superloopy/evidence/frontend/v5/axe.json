@@ -1,0 +1,34 @@
+{
+  "violations": [
+    {
+      "id": "frame-title",
+      "impact": "serious",
+      "description": "Ensure <iframe> and <frame> elements have an accessible name",
+      "nodes": [
+        {
+          "target": [
+            "#itemscout-extension-gtag"
+          ],
+          "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "description": "Ensure every HTML document has a lang attribute",
+      "nodes": [
+        {
+          "target": [
+            [
+              "browser-mcp-container",
+              "html"
+            ]
+          ],
+          "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ]
+    }
+  ],
+  "passes": 23
+}

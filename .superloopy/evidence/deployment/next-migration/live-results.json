@@ -1,0 +1,75 @@
+{
+  "root": {
+    "identical": true,
+    "sha256": "b26949f542a14b2f632e252607e969a56e202f25e12e1970dbe7291472f54d1c"
+  },
+  "pricing": {
+    "identical": true,
+    "sha256": "a77f0f2e1877d0f66a09c58127a61ccdaedef373922f491c1254537ccacbd7fa"
+  },
+  "login": {
+    "identical": true,
+    "sha256": "1454c4b03d6c5f75af0bb4f0cb4ffb14150911d146b9e51cf89dfa96fb40eec1"
+  },
+  "landing": {
+    "ssr": true,
+    "h1": 1,
+    "assets": [
+      {
+        "url": "/landing/_next/static/chunks/266-50792515b6e193d9.js",
+        "bytes": 107609,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/chunks/4bd1b696-92152b0f5947070d.js",
+        "bytes": 201054,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/chunks/794-20ba710f65de96d7.js",
+        "bytes": 240962,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/chunks/app/page-be258792647b0994.js",
+        "bytes": 21372,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/chunks/main-app-a66c97157eff2c8f.js",
+        "bytes": 513,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "bytes": 112594,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/chunks/webpack-6dad1d30f030af1c.js",
+        "bytes": 3273,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/_next/static/css/c5cb8538f96604e6.css",
+        "bytes": 28150,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/favicon.svg",
+        "bytes": 254,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/images/sohee-guide.webp",
+        "bytes": 136622,
+        "matchesBuild": true
+      },
+      {
+        "url": "/landing/images/sohee-hero.webp",
+        "bytes": 218680,
+        "matchesBuild": true
+      }
+    ]
+  }
+}

@@ -1,63 +1,67 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
-import { execFileSync } from "node:child_process";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-const root = fileURLToPath(new URL("../", import.meta.url));
 
-test("production build keeps all internal links and assets under /landing", async () => {
-  execFileSync(process.execPath, ["scripts/build.mjs"], { cwd: root });
-  const html = await readFile(
-    path.join(root, "dist/landing/index.html"),
-    "utf8",
-  );
+// Run against a real Next/Workers server to prove SSR, not source strings.
+const origin = process.env.TEST_ORIGIN || "http://127.0.0.1:4173";
+test("SSR delivers semantic content and isolated assets before JavaScript", async () => {
+  const response = await fetch(`${origin}/landing/`);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(response.headers.get("content-type"), /text\/html/);
+  assert.match(html, /<html[^>]*lang="ko"/);
+  assert.equal((html.match(/<h1\b/g) || []).length, 1);
+  assert.equal((html.match(/<main\b/g) || []).length, 1);
+  const markup = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+  for (const content of [
+    "사장님은 가게에",
+    "예약금 확인",
+    "예약 손님에게",
+    "사장님에게",
+    "방문 전날",
+    "소희 카카오톡",
+    "카페·음식점",
+    "피드백",
+    "승인",
+    "수신 동의",
+  ])
+    assert.ok(markup.includes(content), `SSR missing ${content}`);
+  assert.doesNotMatch(html, /바이름|ByReum|sohee-pilot/i);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
-  assert.equal(new Set(ids).size, ids.length, "HTML IDs must be unique");
+  assert.equal(new Set(ids).size, ids.length);
   for (const [, id] of html.matchAll(/href="#([^"]+)"/g))
     assert.ok(ids.includes(id), `missing anchor ${id}`);
-  for (const [, asset] of html.matchAll(/(?:src|href)="(\/landing\/[^"#]+)"/g))
-    assert.ok((await stat(path.join(root, "dist", asset))).size > 0, asset);
-  assert.doesNotMatch(html, /href="\/(login|signup|app|diagnosis)/);
-  assert.match(html, /서비스 이해를 위한 예시/);
-  assert.match(html, /예약금/);
-  assert.match(html, /성과 리포트/);
+  const urls = [
+    ...new Set(
+      [...html.matchAll(/(?:src|href)="(\/[^"#]+)"/g)].map((m) => m[1]),
+    ),
+  ];
+  for (const url of urls) {
+    assert.ok(url.startsWith("/landing/"), `asset escapes route: ${url}`);
+    const asset = await fetch(origin + url);
+    assert.equal(asset.status, 200, url);
+  }
+  assert.match(html, /rel="canonical" href="https:\/\/sohee.ai.kr\/landing\/"/);
+  assert.doesNotMatch(html, /href="\/(login|signup)|<form/);
+  assert.doesNotMatch(html, /[₩]|[0-9][0-9,]*\s*(?:원|만원)/);
 });
-
-test("landing explains responsibility levels without prices or simulated signup", async () => {
-  const html = await readFile(path.join(root, "index.html"), "utf8");
-  const plans = html.slice(
-    html.indexOf('id="plans"'),
-    html.indexOf('id="faq"'),
-  );
-  for (const tier of ["시작", "성장", "운영"]) assert.ok(plans.includes(tier));
-  assert.doesNotMatch(html, /[₩$]|[0-9][0-9,]*\s*(?:원|만원)/);
-  assert.doesNotMatch(html, /<form|type="submit"/);
-  assert.match(html, /입금 확인 대기/);
-  assert.match(html.replace(/\s+/g, " "), /실제 고객 대화나 성과가 아니/);
-  assert.match(html, /sohee-mission-map.webp/);
-});
-
-test("pilot evidence distinguishes verified execution from future outcomes", async () => {
-  const html = (await readFile(path.join(root, "index.html"), "utf8")).replace(
-    /\s+/g,
-    " ",
-  );
-  assert.match(html, /사장님 승인 후/);
-  assert.match(
-    html,
-    /실제 문의·예약 연결과 마케팅 시간 절감은 다음 현장 검증 과제/,
-  );
-  assert.match(
-    html,
-    /현재 채널의 실시간 상태나 고객 유입 성과를 뜻하지 않습니다/,
-  );
+test("unknown routes return 404 without exposing removed client assets", async () => {
+  assert.equal((await fetch(`${origin}/landing/missing-page/`)).status, 404);
   for (const file of [
     "sohee-pilot-content.webp",
     "sohee-pilot-publishing.webp",
-  ]) {
-    assert.ok(html.includes(file));
-    assert.ok((await stat(path.join(root, "public/images", file))).size > 0);
-  }
-  assert.doesNotMatch(html, /파일럿.*?계약금|무상 파일럿|[0-9]+%.*?매출/);
+  ])
+    await assert.rejects(
+      stat(new URL(`../public/images/${file}`, import.meta.url)),
+      { code: "ENOENT" },
+    );
+});
+test("landing uses request-time server rendering", async () => {
+  const manifest = JSON.parse(
+    await readFile(
+      new URL("../.next/prerender-manifest.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  assert.ok(!manifest.routes["/"], "landing must not be prerendered");
 });

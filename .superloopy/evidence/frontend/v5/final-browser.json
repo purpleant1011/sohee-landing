@@ -1,0 +1,29 @@
+{
+  "summary": [
+    {
+      "width": 1440,
+      "scrollWidth": 1430,
+      "broken": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "broken": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "broken": [],
+      "overflow": [],
+      "errors": []
+    }
+  ],
+  "audit": {
+    "violations": [],
+    "passes": 21
+  }
+}
