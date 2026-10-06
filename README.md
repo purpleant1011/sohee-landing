@@ -34,16 +34,18 @@ TEST_ORIGIN=http://127.0.0.1:4174 npm test
 
 `html lang="ko"`, 하나의 h1/main, nav/section/article/figure/footer, 제목 계층, 본문 바로가기, 키보드 포커스, 동작 줄이기를 제공합니다. Radix 기반 Tabs는 방향키 탐색, Sheet는 초점 가두기·Escape·초점 복귀를 처리합니다. FAQ는 버튼과 aria-expanded 상태를 제공합니다.
 
-## 배포 경계 — 기존 사이트 보호
+## 배포 경계 — 기존 사이트 보호 및 메인 랜딩 서빙
 
-별도 Worker **sohee-landing**만 배포합니다. 원래 앱 **real-sohee**, DNS, 기존 커스텀 도메인은 변경하지 않습니다.
+별도 Worker **sohee-landing**을 배포하여 메인 도메인의 루트(`/`)와 기존 `/landing` 경로를 모두 서빙합니다. 원래 앱 **real-sohee**의 로그인(`/login`), 앱(`/app`), API 등 핵심 서비스는 Cloudflare Custom Domain을 통해 그대로 온전하게 격리 보호됩니다.
 
-허용한 라우트는 정확히 두 개입니다:
+허용한 라우트:
 
-- `sohee.ai.kr/landing`
-- `sohee.ai.kr/landing/*`
+- `sohee.ai.kr` / `sohee.ai.kr/` (메인 랜딩페이지 루트 서빙)
+- `www.sohee.ai.kr` / `www.sohee.ai.kr/`
+- `sohee.ai.kr/landing` / `sohee.ai.kr/landing/*`
+- `www.sohee.ai.kr/landing` / `www.sohee.ai.kr/landing/*`
 
-Next.js `basePath: "/landing"`으로 이미지·폰트·CSS·JS·RSC 요청을 모두 해당 하위 경로에 둡니다. 루트 `/_next/*` 라우트나 `custom_domain`을 추가하면 안 됩니다. Worker 자기 참조 바인딩은 **sohee-landing**만 가리킵니다. R2/DB/인증 리소스를 만들지 않습니다.
+Next.js `basePath: "/landing"`으로 정적 에셋은 `/landing/_next/*` 하위에 격리 유지되며, 루트 요청은 커스텀 `worker-entry.js`를 통해 에지에서 URL을 재작성(rewrite)하여 브라우저 주소창(`sohee.ai.kr`)을 유지한 채 완전한 SSR 랜딩페이지를 서빙합니다.
 
 ```sh
 npx wrangler whoami

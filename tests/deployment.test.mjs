@@ -13,10 +13,19 @@ test("production routes are restricted to the landing page and its assets", asyn
   assert.equal(config.name, "sohee-landing");
   assert.deepEqual(
     config.routes.map((route) => route.pattern),
-    ["sohee.ai.kr/landing", "sohee.ai.kr/landing/*"],
+    [
+      "sohee.ai.kr",
+      "sohee.ai.kr/",
+      "www.sohee.ai.kr",
+      "www.sohee.ai.kr/",
+      "sohee.ai.kr/landing",
+      "sohee.ai.kr/landing/*",
+      "www.sohee.ai.kr/landing",
+      "www.sohee.ai.kr/landing/*",
+    ],
   );
   assert.ok(config.routes.every((route) => !route.custom_domain));
-  assert.equal(config.main, ".open-next/worker.js");
+  assert.equal(config.main, "worker-entry.js");
   assert.ok(config.compatibility_flags.includes("nodejs_compat"));
   assert.equal(config.assets.directory, ".open-next/assets");
 });

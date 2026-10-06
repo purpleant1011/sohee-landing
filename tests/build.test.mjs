@@ -42,8 +42,18 @@ test("SSR delivers semantic content and isolated assets before JavaScript", asyn
     assert.equal(asset.status, 200, url);
   }
   assert.match(html, /rel="canonical" href="https:\/\/sohee.ai.kr\/landing\/"/);
-  assert.doesNotMatch(html, /href="\/(login|signup)|<form/);
+  assert.doesNotMatch(html, /href="\/signup|<form/);
   assert.doesNotMatch(html, /[₩]|[0-9][0-9,]*\s*(?:원|만원)/);
+});
+test("root route (/) delivers landing page with root canonical", async () => {
+  const response = await fetch(`${origin}/`);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(response.headers.get("content-type"), /text\/html/);
+  assert.match(html, /<html[^>]*lang="ko"/);
+  assert.match(html, /사장님은 가게에/);
+  assert.match(html, /rel="canonical" href="https:\/\/sohee\.ai\.kr\/"/);
+  assert.match(html, /href="https:\/\/sohee\.ai\.kr\/login"/);
 });
 test("unknown routes return 404 without exposing removed client assets", async () => {
   assert.equal((await fetch(`${origin}/landing/missing-page/`)).status, 404);

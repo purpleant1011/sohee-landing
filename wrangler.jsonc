@@ -5,6 +5,22 @@
   "workers_dev": true,
   "routes": [
     {
+      "pattern": "sohee.ai.kr",
+      "zone_id": "bce86a3a437596e88e16c53ae1735262",
+    },
+    {
+      "pattern": "sohee.ai.kr/",
+      "zone_id": "bce86a3a437596e88e16c53ae1735262",
+    },
+    {
+      "pattern": "www.sohee.ai.kr",
+      "zone_id": "bce86a3a437596e88e16c53ae1735262",
+    },
+    {
+      "pattern": "www.sohee.ai.kr/",
+      "zone_id": "bce86a3a437596e88e16c53ae1735262",
+    },
+    {
       "pattern": "sohee.ai.kr/landing",
       "zone_id": "bce86a3a437596e88e16c53ae1735262",
     },
@@ -12,12 +28,20 @@
       "pattern": "sohee.ai.kr/landing/*",
       "zone_id": "bce86a3a437596e88e16c53ae1735262",
     },
+    {
+      "pattern": "www.sohee.ai.kr/landing",
+      "zone_id": "bce86a3a437596e88e16c53ae1735262",
+    },
+    {
+      "pattern": "www.sohee.ai.kr/landing/*",
+      "zone_id": "bce86a3a437596e88e16c53ae1735262",
+    },
   ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
-  "main": ".open-next/worker.js",
+  "main": "worker-entry.js",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "services": [
     {

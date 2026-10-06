@@ -41,6 +41,11 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+            <a href="https://sohee.ai.kr/login">
+              로그인
+            </a>
+          </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <a href="#demo">
               우리 업종 예시 보기
@@ -76,6 +81,13 @@ export function SiteHeader() {
                     {label}
                   </a>
                 ))}
+                <a
+                  href="https://sohee.ai.kr/login"
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-5 text-lg font-semibold text-muted-foreground"
+                >
+                  로그인
+                </a>
               </nav>
               <Button asChild>
                 <a href="#demo" onClick={() => setOpen(false)}>
