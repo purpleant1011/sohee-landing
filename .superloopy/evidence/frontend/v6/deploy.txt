@@ -1,0 +1,52 @@
+
+> sohee-landing@1.0.0 deploy
+> opennextjs-cloudflare deploy
+
+
+┌──────────────────────────────┐
+│ OpenNext — Cloudflare deploy │
+└──────────────────────────────┘
+
+(node:78558) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Incremental cache does not need populating
+Tag cache does not need populating
+
+ ⛅️ wrangler 4.143.0
+────────────────────
+🌀 Building list of assets...
+✨ Read 47 files from the assets directory /Volumes/Development/소희 프로젝트/landing/.open-next/assets
+🌀 Starting asset upload...
+🌀 Found 8 new or modified static assets to upload. Proceeding with upload...
++ /landing/BUILD_ID
++ /landing/_next/static/chunks/webpack-06773febc16b39d2.js
++ /landing/_next/static/chunks/0-3511024b90955705.js
++ /landing/_next/static/chunks/next/dist/client/components/builtin/app-error-7b4c6c53912cc774.js
++ /landing/_next/static/chunks/app/page-fb50a9198f171fd8.js
++ /landing/_next/static/chunks/22-d33ff0358c7c4a0f.js
++ /landing/_next/static/chunks/app/not-found-fff6fccfbcc26c6d.js
++ /landing/_next/static/css/508aaba2739f7f80.css
+Uploaded 3 of 8 assets
+Uploaded 5 of 8 assets
+Uploaded 8 of 8 assets
+✨ Success! Uploaded 8 files (22 already uploaded) (1.42 sec)
+
+Total Upload: 5280.09 KiB / gzip: 1080.11 KiB
+Worker Startup Time: 18 ms
+Your Worker has access to the following bindings:
+Binding                                        Resource
+env.WORKER_SELF_REFERENCE (sohee-landing)      Worker
+env.ASSETS                                     Assets
+
+Uploaded sohee-landing (13.43 sec)
+Deployed sohee-landing triggers (1.43 sec)
+  https://sohee-landing.true1011.workers.dev
+  sohee.ai.kr/landing (zone id: bce86a3a437596e88e16c53ae1735262)
+  sohee.ai.kr/landing/* (zone id: bce86a3a437596e88e16c53ae1735262)
+Current Version ID: bd241c63-ee97-4036-9efc-a3b79484f025
+▲ [WARNING] Warning: The following routes will attempt to serve Assets on a configured path:
+
+    • sohee.ai.kr/landing (Will match assets: .open-next/assets/landing)
+    • sohee.ai.kr/landing/* (Will match assets: .open-next/assets/landing/*)
+
+  Requests not matching an asset will be forwarded to the Worker's code.

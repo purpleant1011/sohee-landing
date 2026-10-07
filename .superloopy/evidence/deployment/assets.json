@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/landing/favicon.svg",
+    "matches_build": true,
+    "bytes": 254
+  },
+  {
+    "path": "/landing/fonts/PretendardVariable.woff2",
+    "matches_build": true,
+    "bytes": 2057688
+  },
+  {
+    "path": "/landing/images/sohee-guide.webp",
+    "matches_build": true,
+    "bytes": 136622
+  },
+  {
+    "path": "/landing/images/sohee-hero.webp",
+    "matches_build": true,
+    "bytes": 218680
+  },
+  {
+    "path": "/landing/images/sohee-mission-map.webp",
+    "matches_build": true,
+    "bytes": 161182
+  },
+  {
+    "path": "/landing/main.js",
+    "matches_build": true,
+    "bytes": 4737
+  },
+  {
+    "path": "/landing/src/scenarios.mjs",
+    "matches_build": true,
+    "bytes": 10349
+  },
+  {
+    "path": "/landing/styles.css",
+    "matches_build": true,
+    "bytes": 63694
+  }
+]

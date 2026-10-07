@@ -1,0 +1,106 @@
+"use client";
+import { useState } from "react";
+import { ArrowUpRight, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { mainNav } from "@/lib/site";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="sticky top-0 z-40 border-b border-border bg-background">
+      <div className="shell flex h-20 items-center justify-between gap-6">
+        <a href="/" aria-label="소희, 처음으로" className="wordmark">
+          sohee<span>.</span>
+          <span className="ml-3 text-sm font-medium tracking-normal text-muted-foreground">
+            소희
+          </span>
+        </a>
+        <nav
+          aria-label="주요 메뉴"
+          className="hidden items-center gap-7 text-sm font-medium lg:flex"
+        >
+          {mainNav.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="transition-colors hover:text-primary"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+            <a href="/login">
+              로그인
+            </a>
+          </Button>
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <a href="/#demo">
+              우리 업종 예시 보기
+              <ArrowUpRight aria-hidden="true" />
+            </a>
+          </Button>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="메뉴 열기"
+                className="lg:hidden"
+              >
+                <Menu aria-hidden="true" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="w-[min(88vw,400px)] gap-5 p-7">
+              <SheetTitle className="mt-8 text-2xl font-bold">
+                소희를 만나보세요.
+              </SheetTitle>
+              <SheetDescription className="text-muted-foreground">
+                우리 가게 마케팅을 함께할 AI 직원
+              </SheetDescription>
+              <nav aria-label="모바일 메뉴" className="flex flex-col">
+                {mainNav.map(({ href, label }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="border-b border-border py-5 text-lg font-semibold"
+                  >
+                    {label}
+                  </a>
+                ))}
+                <a
+                  href="/login"
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-5 text-lg font-semibold text-muted-foreground"
+                >
+                  로그인
+                </a>
+                <a
+                  href="/signup"
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-5 text-lg font-semibold text-muted-foreground"
+                >
+                  회원가입
+                </a>
+              </nav>
+              <Button asChild>
+                <a href="/#demo" onClick={() => setOpen(false)}>
+                  우리 가게 업무 예시 보기
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
+              </Button>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  );
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "clientNameExposed": false,
+    "brokenImages": 0
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "clientNameExposed": false,
+    "brokenImages": 0
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "clientNameExposed": false,
+    "brokenImages": 0
+  },
+  {
+    "width": 320,
+    "overflow": false,
+    "clientNameExposed": false,
+    "brokenImages": 0
+  },
+  {
+    "demoStep": "step-3"
+  }
+]

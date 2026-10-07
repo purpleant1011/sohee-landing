@@ -1,0 +1,12 @@
+{
+  "url": "https://sohee.ai.kr/landing/",
+  "character": {
+    "loaded": true,
+    "fit": "contain",
+    "clip": "none",
+    "mask": "none",
+    "radius": "0px"
+  },
+  "stage": "주문과 픽업을 한 흐름으로 챙겨요.",
+  "errors": []
+}
