@@ -6,7 +6,6 @@
   "routes": [
     { "pattern": "sohee.ai.kr", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "sohee.ai.kr/", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
-    { "pattern": "sohee.ai.kr/?*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "sohee.ai.kr/product*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "sohee.ai.kr/channels*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "sohee.ai.kr/industries*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
@@ -22,7 +21,6 @@
     { "pattern": "sohee.ai.kr/landing/*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "www.sohee.ai.kr", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "www.sohee.ai.kr/", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
-    { "pattern": "www.sohee.ai.kr/?*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "www.sohee.ai.kr/product*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "www.sohee.ai.kr/channels*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },
     { "pattern": "www.sohee.ai.kr/industries*", "zone_id": "bce86a3a437596e88e16c53ae1735262" },

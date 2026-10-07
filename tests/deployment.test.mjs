@@ -13,11 +13,10 @@ test("production routes are restricted to the landing page and its assets", asyn
   assert.equal(config.name, "sohee-landing");
   const patterns = config.routes.map((route) => route.pattern);
   for (const host of ["sohee.ai.kr", "www.sohee.ai.kr"]) {
-    // Query-string visits (utm, fbclid) must be captured, not only the bare root.
+    // Query-string visits (utm, fbclid) match the root route automatically (Cloudflare routes ignore query strings).
     for (const suffix of [
       "",
       "/",
-      "/?*",
       "/product*",
       "/channels*",
       "/industries*",
