@@ -1,4 +1,5 @@
 import {
+  Ban,
   CheckCheck,
   MessageCircle,
   ShieldCheck,
@@ -58,6 +59,18 @@ export function OwnerControlSection() {
               <p>
                 게시 반응, 고객 문의, 확정 예약을 나눠 보고해요. 확인되지 않은
                 예약이나 매출을 성과로 부풀리지 않아요.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span className="approval-icon">
+              <Ban aria-hidden="true" />
+            </span>
+            <div>
+              <h3>소희가 하지 않는 일도 분명해요.</h3>
+              <p>
+                채널 비밀번호를 저장하지 않고, 결과가 불분명한 작업을 자동으로
+                다시 실행하지 않아요. 승인 밖의 게시와 고객 연락도 하지 않습니다.
               </p>
             </div>
           </article>

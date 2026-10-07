@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { mainNav } from "@/lib/site";
 import {
   Sheet,
   SheetContent,
@@ -9,18 +10,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-const links = [
-  ["#work", "소희가 하는 일"],
-  ["#booking", "예약까지 한 번에"],
-  ["#business-learning", "우리 업종도 될까요?"],
-  ["#partnership", "함께 시작하기"],
-];
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background">
       <div className="shell flex h-20 items-center justify-between gap-6">
-        <a href="#top" aria-label="소희, 처음으로" className="wordmark">
+        <a href="/" aria-label="소희, 처음으로" className="wordmark">
           sohee<span>.</span>
           <span className="ml-3 text-sm font-medium tracking-normal text-muted-foreground">
             소희
@@ -30,7 +25,7 @@ export function SiteHeader() {
           aria-label="주요 메뉴"
           className="hidden items-center gap-7 text-sm font-medium lg:flex"
         >
-          {links.map(([href, label]) => (
+          {mainNav.map(({ href, label }) => (
             <a
               key={href}
               href={href}
@@ -42,12 +37,12 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-            <a href="https://sohee.ai.kr/login">
+            <a href="/login">
               로그인
             </a>
           </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <a href="#demo">
+            <a href="/#demo">
               우리 업종 예시 보기
               <ArrowUpRight aria-hidden="true" />
             </a>
@@ -71,7 +66,7 @@ export function SiteHeader() {
                 우리 가게 마케팅을 함께할 AI 직원
               </SheetDescription>
               <nav aria-label="모바일 메뉴" className="flex flex-col">
-                {links.map(([href, label]) => (
+                {mainNav.map(({ href, label }) => (
                   <a
                     key={href}
                     href={href}
@@ -82,15 +77,22 @@ export function SiteHeader() {
                   </a>
                 ))}
                 <a
-                  href="https://sohee.ai.kr/login"
+                  href="/login"
                   onClick={() => setOpen(false)}
                   className="border-b border-border py-5 text-lg font-semibold text-muted-foreground"
                 >
                   로그인
                 </a>
+                <a
+                  href="/signup"
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-5 text-lg font-semibold text-muted-foreground"
+                >
+                  회원가입
+                </a>
               </nav>
               <Button asChild>
-                <a href="#demo" onClick={() => setOpen(false)}>
+                <a href="/#demo" onClick={() => setOpen(false)}>
                   우리 가게 업무 예시 보기
                   <ArrowUpRight aria-hidden="true" />
                 </a>

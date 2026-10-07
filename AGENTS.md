@@ -4,13 +4,13 @@
 
 Korean-speaking small-business owners who cannot keep up with marketing while serving customers. Sohee is an AI marketing employee on a monthly subscription. Explain problem → connected work → expected benefit. Owner approval, accurate booking/deposit states, and verified outcomes remain explicit.
 
-Primary CTA: choose an industry, explore Sohee's work, download an illustrative work brief. Do not create signup, login, payment, real messaging, fabricated proof, or named customer exposure. Never promise guaranteed revenue. No prices without explicit approval.
+Primary CTA: choose an industry, explore Sohee's work, download an illustrative work brief. The landing only links to the existing app's /login and /signup (Meta app review starts from this site); it never implements signup, login, payment, real messaging, fabricated proof, or named customer exposure. Never promise guaranteed revenue. No prices without explicit approval.
 
 ## Stack and boundaries
 
 Next.js App Router, React, TypeScript, current Tailwind CSS 4, official shadcn/ui registry components customized to the brand. Server-render the landing; use client components only for interaction. Keep sections in components/landing and shared primitives in components/ui.
 
-Deploy via OpenNext to the existing sohee-landing Worker only. Preserve /landing and /landing/\* routes and Next basePath. Never change real-sohee, DNS, root routes, or custom domains. Figma and Vercel are not required.
+Deploy via OpenNext to the existing sohee-landing Worker only. Preserve the Next basePath /landing. This Worker owns the public marketing/legal URLs (/, /product, /channels, /industries/*, /privacy, /terms and legacy /pricing etc. redirects) through zone routes in wrangler.jsonc, including query-string variants (`/?*`); worker-entry.js rewrites them onto /landing. Never route /app, /api, /login, /signup, /admin, /auth, /start or /data-deletion here and never change real-sohee, DNS or custom domains. Contact and legal facts live in lib/site.ts; operator identity (상호/대표자/사업자번호) must only be added once confirmed. Figma and Vercel are not required.
 
 ## Design and quality
 
