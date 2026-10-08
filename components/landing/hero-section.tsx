@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
+import { WaitlistSection } from "./waitlist-section";
 export function HeroSection() {
   return (
     <section id="top" className="hero shell" aria-labelledby="hero-title">
@@ -41,6 +42,7 @@ export function HeroSection() {
         <p className="mt-4 text-xs text-muted-foreground">
           가입 없이 확인하고, 우리 가게 업무 예시를 저장하세요.
         </p>
+        <WaitlistSection />
       </div>
       <div className="hero-visual">
         <figure>

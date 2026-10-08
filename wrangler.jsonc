@@ -39,6 +39,10 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
+  "vars": {
+    "SUPABASE_URL": "https://egbuwaomzhmvqvrwpdim.supabase.co",
+    "SUPABASE_ANON_KEY": "sb_publishable_nGhdexHp1yeunZjmZwQbYw_o6JL1ph1"
+  },
   "main": "worker-entry.js",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "services": [

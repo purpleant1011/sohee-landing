@@ -45,8 +45,8 @@ export function PageCta({
           <a className="sub-btn sub-btn-light" href="/#demo">
             업종별 업무 예시 보기
           </a>
-          <a className="sub-btn sub-btn-ghost" href="/signup">
-            회원가입
+          <a className="sub-btn sub-btn-ghost" href="/#waitlist">
+            오픈 알림 신청
           </a>
           <a className="sub-btn sub-btn-ghost" href="/login">
             로그인

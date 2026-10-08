@@ -1,6 +1,7 @@
 import { SoheeCharacter } from "@/components/sohee-character";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { WaitlistForm } from "./waitlist-form";
 export function ClosingSection() {
   return (
     <section className="closing-section" aria-labelledby="closing-title">
@@ -28,14 +29,16 @@ export function ClosingSection() {
           <p className="mt-4 text-sm text-white/85">
             가입 없이 업종별 예시 확인 · 업무 계획 저장
           </p>
-          <p className="mt-2 text-sm text-white/85">
-            이미 소희와 일하고 있다면{" "}
+          <div className="mx-auto mt-8 max-w-md text-left">
+            <h2 className="mb-3 text-center text-lg font-semibold text-white">
+              정식 오픈 소식 받기
+            </h2>
+            <WaitlistForm variant="closing" idPrefix="closing" />
+          </div>
+          <p className="mt-6 text-sm text-white/85">
+            초대받은 테스터이신가요?{" "}
             <a href="/login" className="font-semibold text-white underline underline-offset-4">
               로그인
-            </a>
-            {" · "}
-            <a href="/signup" className="font-semibold text-white underline underline-offset-4">
-              회원가입
             </a>
           </p>
         </div>

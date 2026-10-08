@@ -84,11 +84,11 @@ export function SiteHeader() {
                   로그인
                 </a>
                 <a
-                  href="/signup"
+                  href="/#waitlist"
                   onClick={() => setOpen(false)}
                   className="border-b border-border py-5 text-lg font-semibold text-muted-foreground"
                 >
-                  회원가입
+                  오픈 알림 신청
                 </a>
               </nav>
               <Button asChild>

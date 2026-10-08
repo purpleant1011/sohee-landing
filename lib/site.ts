@@ -27,7 +27,7 @@ export const footerGroups = [
     title: "계정",
     links: [
       { href: "/login", label: "로그인" },
-      { href: "/signup", label: "회원가입" },
+      { href: "/#waitlist", label: "오픈 알림 신청" },
     ],
   },
   {

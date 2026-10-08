@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { WaitlistBar } from "@/components/landing/waitlist-bar";
 import "./globals.css";
 const pretendard = localFont({
   src: "../public/fonts/PretendardVariable.woff2",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           본문으로 바로가기
         </a>
+        <WaitlistBar />
         {children}
       </body>
     </html>
