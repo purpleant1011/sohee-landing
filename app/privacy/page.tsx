@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { LegalDocument } from "@/components/pages/legal-document";
-import { CONTACT_EMAIL, canonical } from "@/lib/site";
+import { CONTACT_EMAIL, PRIVACY_EFFECTIVE_DATE, PRIVACY_NOTICE_DATE, canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "개인정보 처리방침 | 소희",
   description:
-    "소희가 수집하는 개인정보와 Instagram·Threads 연결 정보, 이용 목적, 보관·삭제, 처리 위탁과 이용자 권리를 안내합니다.",
+    "소희가 수집하는 개인정보와 Instagram·Threads 연결 정보, 댓글·메시지(소통함) 처리, 이용 목적, 보관·삭제, 처리 위탁과 이용자 권리를 안내합니다.",
   alternates: { canonical: canonical("/privacy") },
   openGraph: { url: canonical("/privacy"), title: "개인정보 처리방침 | 소희" },
 };
@@ -15,6 +15,13 @@ export default function PrivacyPage() {
     <LegalDocument
       eyebrow="정책과 안내"
       title="개인정보 처리방침"
+      effectiveDate={PRIVACY_EFFECTIVE_DATE}
+      notice={
+        <>
+          <p><strong>개정 안내</strong> — {PRIVACY_NOTICE_DATE} 공지, {PRIVACY_EFFECTIVE_DATE} 시행. 시행일 전까지는 2026년 10월 7일자 방침이 적용됩니다.</p>
+          <p>주요 변경: 소통함(댓글·다이렉트 메시지) 기능 추가에 따라 수집 항목, 이용 목적, Meta 권한 범위, AI 처리 범위, 보관 기간을 추가했습니다. 해당 기능은 이용자가 직접 켠 경우에만 동작합니다.</p>
+        </>
+      }
       intro="소희(sohee.ai.kr, 이하 ‘서비스’)는 이용자의 개인정보를 소중하게 다루며, 「개인정보 보호법」 등 관련 법령을 지킵니다. 어떤 정보를 왜 받고, 어떻게 보호하고, 언제 삭제하는지 아래에 안내합니다."
       sections={[
         {
@@ -28,10 +35,11 @@ export default function PrivacyPage() {
                 <li><strong>매장 정보</strong> — 사용자가 직접 입력하거나 올린 가게 이름, 업종, 소개, 말투와 기준, 메뉴·서비스 정보와 이미지.</li>
                 <li><strong>생성·승인 기록</strong> — 소희가 만든 글·이미지 초안과 사용자의 확인·수정·승인·게시 기록.</li>
                 <li><strong>연결 채널 정보</strong> — Instagram 전문 계정과 Threads 계정을 연결할 때 Meta가 제공하는 사용자 ID와 사용자명(@username), OAuth 접근 토큰과 만료 시각, 게시 후 확인에 쓰는 게시물·미디어 ID.</li>
+                <li><strong>소통함 이용 정보</strong>(소통함 기능을 켠 경우) — 연결한 Instagram·Threads 계정의 게시물에 달린 댓글·답글(작성자 사용자명·ID, 본문, 작성 시각), 연결한 Instagram 계정으로 받은 다이렉트 메시지(상대방 사용자명·ID, 메시지 본문, 시각), 소희가 만든 답글·답장 초안과 사용자의 확인·수정·승인·전송 기록. 감사 기록에는 문안 원문과 고객 식별자 대신 문안의 지문과 글자 수만 남깁니다.</li>
                 <li><strong>이용 기록</strong> — 접속 기록, 서비스 이용·오류 기록, 게시 등 주요 작업의 감사 기록, 로그인 유지를 위한 쿠키와 세션 정보.</li>
                 <li><strong>오픈 알림 신청 정보</strong> — 정식 오픈 안내 메일 발송을 위해 신청 시 입력한 이메일 주소(오픈 안내 후 또는 삭제 요청 시 지체 없이 파기).</li>
               </ul>
-              <p>서비스는 연결한 Instagram·Threads 계정의 비공개 메시지, 팔로워 목록 등 기능과 무관한 정보를 요청하거나 조회하지 않습니다. 채널 로그인 비밀번호는 입력받거나 저장하지 않습니다.</p>
+              <p>서비스는 이용자가 소통함 기능을 켠 경우에 한해 연결한 계정의 댓글·답글과 Instagram 다이렉트 메시지를 조회합니다. 팔로워 목록 등 소통함 기능과 무관한 정보는 요청하거나 조회하지 않으며, Threads 다이렉트 메시지는 조회하지 않습니다. 채널 로그인 비밀번호는 입력받거나 저장하지 않습니다.</p>
             </>
           ),
         },
@@ -54,6 +62,7 @@ export default function PrivacyPage() {
               <li>사용자가 입력한 매장 정보와 요청을 바탕으로 한 마케팅 글·이미지 초안 생성.</li>
               <li>Instagram·Threads 계정 연결 상태와 게시 대상 계정 표시(연결된 @username을 미리보기에 보여 줍니다).</li>
               <li>사용자가 최종 확인하고 승인한 콘텐츠의 게시, 게시 성공 여부 확인과 게시물 링크 제공.</li>
+              <li>소통함: 연결한 계정에 달린 댓글과 다이렉트 메시지를 분류하고 답글·답장 초안을 만들어 보여 주며, 사용자가 확인·승인한 답글·답장만 전송합니다.</li>
               <li>서비스 안정성 확보, 오류 대응, 부정 이용 방지와 법령상 의무 이행.</li>
             </ul>
           ),
@@ -67,8 +76,13 @@ export default function PrivacyPage() {
               <ul>
                 <li><code>instagram_business_basic</code>, <code>threads_basic</code> — 연결된 계정의 ID와 사용자명을 확인해 화면에 표시합니다.</li>
                 <li><code>instagram_business_content_publish</code>, <code>threads_content_publish</code> — 사용자가 확인·승인한 게시물만 해당 계정에 게시합니다.</li>
+                <li><code>instagram_business_manage_comments</code>, <code>threads_read_replies</code> — 소통함에서 연결 계정 게시물의 댓글·답글을 읽어 화면에 표시합니다.</li>
+                <li><code>instagram_business_manage_messages</code> — 소통함에서 고객이 보낸 Instagram 다이렉트 메시지를 읽어 화면에 표시하고, 사용자가 승인한 답장을 보냅니다.</li>
+                <li><code>threads_manage_replies</code> — 사용자가 승인한 답글을 Threads에 게시합니다.</li>
               </ul>
+              <p>댓글·메시지 관련 권한은 이용자가 소통함을 사용하기로 하고 해당 권한에 동의한 경우에만 적용됩니다.</p>
               <p>서비스는 외부 채널 게시를 자동으로 진행하지 않습니다. 사용자가 미리보기를 확인하고 ‘발행’ 후 확인 창에서 한 번 더 승인해야 게시됩니다.</p>
+              <p>소통함의 답글·답장도 사용자가 내용을 확인하고 승인해야 전송되며, 승인한 뒤 문안을 수정하면 다시 승인해야 합니다. 자동 답글 기능은 기본적으로 꺼져 있고, 켜더라도 사용자가 허용한 일부 유형(감사·인사 등)에 한해 횟수 제한 안에서만 동작하며 불만·환불·민감한 문의는 자동으로 답하지 않습니다. 다이렉트 메시지는 Meta 정책에 따라 고객이 마지막으로 메시지를 보낸 지 24시간 안에서만 보낼 수 있습니다.</p>
               <p>Meta 플랫폼 정보는 판매·대여·공유하지 않고, 광고·프로파일링·타기팅에 사용하지 않으며, 인공지능 모델 학습에 사용하지 않습니다. 접근 토큰과 플랫폼 식별자는 저장 전에 AES-GCM-256으로 암호화합니다.</p>
             </>
           ),
@@ -80,7 +94,7 @@ export default function PrivacyPage() {
             <>
               <p>서비스는 안정적인 제공을 위해 아래 사업자의 서비스를 이용합니다.</p>
               <ul>
-                <li><strong>Google(Gemini)</strong>, <strong>OpenAI</strong> — 사용자가 입력한 매장 설명과 요청 문구를 받아 글·이미지 초안을 생성합니다. Meta 사용자 ID, 사용자명, 접근 토큰은 전달하지 않습니다.</li>
+                <li><strong>Google(Gemini)</strong>, <strong>OpenAI</strong> — 사용자가 입력한 매장 설명과 요청 문구를 받아 글·이미지 초안을 생성하고, 소통함을 쓰는 경우 고객 댓글 본문을 받아 댓글을 분류하고 답글 초안을 생성합니다. Meta 사용자 ID, 사용자명, 접근 토큰은 전달하지 않습니다. 다이렉트 메시지 본문은 이 사업자들에게 전달하지 않으며, 답장 방향 문안은 서비스 안에서 규칙에 따라 만듭니다.</li>
                 <li><strong>Cloudflare</strong> — 서비스 실행과 전송 구간 보호.</li>
                 <li><strong>Supabase</strong> — 데이터베이스와 인증, 파일 저장. 작업공간별 행 단위 접근 제어(RLS)를 적용합니다.</li>
               </ul>
@@ -97,6 +111,7 @@ export default function PrivacyPage() {
               <ul>
                 <li>계정·매장·콘텐츠 정보는 회원 탈퇴 또는 삭제 요청 시까지 보관한 뒤 지체 없이 삭제합니다.</li>
                 <li>Instagram·Threads 접근 토큰과 플랫폼 식별자는 연결이 유지되는 동안만 보관하며, 연결 해제·앱 제거(Meta 연결 해제 콜백)·데이터 삭제 요청 시 삭제 절차로 제거합니다.</li>
+                <li>소통함 데이터: 종료된 다이렉트 메시지 대화의 메시지 본문과 답장 초안은 마지막 메시지로부터 30일 후, 종료된 댓글의 본문·작성자 정보와 답글 초안은 마지막 처리일로부터 30일 후 자동으로 삭제하거나 식별할 수 없는 형태로 바꿉니다. 처리 중인 대화와 댓글은 처리가 끝날 때까지 보관합니다. 감사 기록에는 문안 원문과 고객 식별자를 남기지 않습니다.</li>
                 <li>전자상거래 등에서의 소비자 보호에 관한 법률 등 법령이 보관을 요구하거나, 분쟁 대응·부정 이용 방지·정산에 꼭 필요한 최소 기록은 법정 기간 또는 필요한 기간 동안 분리해 보관합니다.</li>
               </ul>
             </>

@@ -12,11 +12,15 @@ export function LegalDocument({
   title,
   intro,
   sections,
+  effectiveDate = LEGAL_EFFECTIVE_DATE,
+  notice,
 }: {
   eyebrow: string;
   title: string;
   intro: React.ReactNode;
   sections: LegalSection[];
+  effectiveDate?: string;
+  notice?: React.ReactNode;
 }) {
   return (
     <PageShell>
@@ -24,7 +28,8 @@ export function LegalDocument({
         <p className="eyebrow">{eyebrow}</p>
         <h1 id="page-title">{title}</h1>
         <p className="sub-lead">{intro}</p>
-        <p className="caption mt-4">시행일 {LEGAL_EFFECTIVE_DATE}</p>
+        <p className="caption mt-4">시행일 {effectiveDate}</p>
+        {notice ? <div className="legal-notice mt-4" role="note">{notice}</div> : null}
       </section>
       <div className="shell legal-layout">
         <nav aria-label="문서 목차" className="legal-toc">
