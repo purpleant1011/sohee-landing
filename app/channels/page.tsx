@@ -35,7 +35,38 @@ export default function ChannelsPage() {
         <h2 id="channel-table-title" className="sr-only">
           채널별 연결 수준
         </h2>
-        <div className="table-wrap">
+        {/* 모바일 화면: 가로 스크롤 없는 채널별 카드 뷰 */}
+        <div className="grid gap-4 md:hidden" aria-label="채널별 연결 안내 목록">
+          {CHANNELS.map((channel) => (
+            <div
+              key={channel.id}
+              className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-xs dark:border-zinc-800 dark:bg-zinc-900 space-y-3.5"
+            >
+              <div className="flex items-center justify-between gap-2 border-b border-zinc-100 pb-3 dark:border-zinc-800">
+                <h3 className="font-bold text-base text-zinc-900 dark:text-zinc-100">{channel.name}</h3>
+                <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
+                  {channel.mode}
+                </span>
+              </div>
+              <div className="space-y-2 text-xs">
+                <div>
+                  <span className="font-semibold text-zinc-500 dark:text-zinc-400 block mb-0.5">소희가 준비하는 일</span>
+                  <p className="text-zinc-800 dark:text-zinc-200 leading-relaxed">{channel.soheeWork}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-zinc-500 dark:text-zinc-400 block mb-0.5">사장님이 마무리하는 일</span>
+                  <p className="text-zinc-800 dark:text-zinc-200 leading-relaxed">{channel.ownerFinish}</p>
+                </div>
+                <div className="pt-1 text-[11px] text-zinc-400 dark:text-zinc-500">
+                  고객 행동: {channel.customerAction}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 데스크톱 화면: 5열 비교 테이블 */}
+        <div className="table-wrap hidden md:block">
           <table className="channel-table">
             <caption className="sr-only">채널별 고객 행동, 소희가 준비하는 일, 사장님이 마무리하는 일과 현재 검증 상태</caption>
             <thead>
