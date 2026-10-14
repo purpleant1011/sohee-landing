@@ -75,6 +75,22 @@ export const PRODUCT_STEPS = [
 
 export const INDUSTRIES = [
   {
+    slug: "cafe",
+    label: "카페·디저트",
+    headline: "시그니처 메뉴, 선물 답례품과 예약 포장을 한 흐름으로",
+    customerQuestion: "오늘 오후에 구움과자 선물 세트 10개 예약 포장 가능한가요?",
+    missedAction: "단체 주문이나 픽업 일정을 바로 정리하지 못해 구매를 놓치는 순간",
+    soheeAction: "메뉴, 포장 옵션과 픽업 일정을 확인하고 예약 주문을 정리합니다.",
+    topics: [
+      "나른한 오후를 깨우는 시그니처 원두 이야기",
+      "답례품 및 디저트 선물 세트 예약 안내",
+      "오늘 구운 빵과 디저트 라인업",
+    ],
+    outcome: "피드 반응, 포장 문의, 픽업 예약, 재방문",
+    image: "/landing/images/industry-food.webp",
+    alt: "카페의 신메뉴 소개와 선물 포장 예약을 연결하는 소희",
+  },
+  {
     slug: "beauty",
     label: "미용",
     headline: "상담 질문에서 예약과 재방문까지",

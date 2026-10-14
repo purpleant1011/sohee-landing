@@ -7,7 +7,7 @@ import { canonical } from "@/lib/site";
 export const metadata: Metadata = {
   title: "업종별 활용 | 소희",
   description:
-    "미용, 외식, 교육, 생활 서비스. 업종마다 다른 고객 질문에서 예약·방문·등록까지 소희가 이어서 준비하는 일을 확인하세요.",
+    "카페·디저트, 미용, 외식, 교육, 생활 서비스. 업종마다 다른 고객 질문에서 예약·방문·등록까지 소희가 이어서 준비하는 일을 확인하세요.",
   alternates: { canonical: canonical("/industries") },
   openGraph: { url: canonical("/industries"), title: "업종별 활용 | 소희" },
 };
