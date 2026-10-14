@@ -121,7 +121,7 @@ export function WorkDemo() {
                 {item.result}
               </p>
             </div>
-            <div className="demo-conversation">
+            <div className="demo-conversation space-y-4">
               <div className="flex items-center gap-3 border-b border-border pb-4">
                 <SoheeCharacter alt="" className="avatar" />
                 <div>
@@ -131,12 +131,39 @@ export function WorkDemo() {
                   </p>
                 </div>
               </div>
-              <p className="mt-5 text-sm font-medium">{item.detail}</p>
+              <p className="text-sm font-medium">{item.detail}</p>
               <div className="speech customer-speech">
                 <MessageCircle className="mb-2 size-4" aria-hidden="true" />
                 {item.customer}
               </div>
               <p className="speech sohee-speech">{item.message}</p>
+
+              {/* 소희의 결과물 카드 미리보기 */}
+              <div className="mt-4 rounded-xl border border-border/80 bg-background/90 p-4 shadow-xs">
+                <div className="flex items-center justify-between text-xs font-semibold text-primary mb-2">
+                  <span className="flex items-center gap-1.5">
+                    <span className="size-2 rounded-full bg-primary animate-pulse" />
+                    소희가 완성한 업무 결과물
+                  </span>
+                  <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold">
+                    사장님 승인 대기
+                  </span>
+                </div>
+                <div className="rounded-lg bg-muted/60 p-3 text-xs leading-relaxed space-y-1.5 font-mono text-zinc-700 dark:text-zinc-300">
+                  <p className="font-semibold text-foreground font-sans">
+                    {i === 0 && `📸 [인스타그램 피드 발행 초안]`}
+                    {i === 1 && `💬 [1:1 고객 맞춤 응대 답변]`}
+                    {i === 2 && `📅 [예약 확정 및 방문 안내 카드]`}
+                    {i === 3 && `📊 [주간 마케팅 성과 및 다음 제안]`}
+                  </p>
+                  <p className="font-sans text-xs">
+                    {i === 0 && `"${item.customer} ✨ ${item.detail} 소식을 전해요. 이번 주만 제공되는 특별한 혜택을 놓치지 마세요!"`}
+                    {i === 1 && `"안녕하세요 고객님! 문의주신 ${item.detail} 안내드려요. ${item.message}"`}
+                    {i === 2 && `"고객님의 ${item.detail} 예약이 접수되었습니다. 방문 전날 확인 알림을 다시 보내드릴게요!"`}
+                    {i === 3 && `"지난 피드를 통해 ${item.result}을 달성했어요. 사장님 기준에 맞춘 다음 실험을 준비할게요."`}
+                  </p>
+                </div>
+              </div>
             </div>
           </TabsContent>
         ))}
