@@ -5,6 +5,7 @@ import {
   ArrowDown,
   ArrowRight,
   Check,
+  Coffee,
   Download,
   Flower2,
   MessageCircle,
@@ -15,13 +16,14 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { scenarios, steps, createBrief } from "@/src/scenarios.mjs";
 const industries = [
+  { id: "cafe", Icon: Coffee },
   { id: "beauty", Icon: Scissors },
   { id: "flower", Icon: Flower2 },
   { id: "lesson", Icon: StretchHorizontal },
 ] as const;
 type Industry = (typeof industries)[number]["id"];
 export function WorkDemo() {
-  const [industry, setIndustry] = useState<Industry>("beauty");
+  const [industry, setIndustry] = useState<Industry>("cafe");
   const [stage, setStage] = useState("0");
   const [downloaded, setDownloaded] = useState(false);
   const scenario = scenarios[industry];
@@ -57,7 +59,7 @@ export function WorkDemo() {
                 <Icon aria-hidden="true" className="hidden size-4 sm:block" />
                 <span className="hidden sm:inline">{scenarios[id].name}</span>
                 <span className="sm:hidden">
-                  {scenarios[id].name.replace("·스튜디오", "")}
+                  {scenarios[id].name.replace("·스튜디오", "").replace("·디저트", "")}
                 </span>
               </TabsTrigger>
             ))}
