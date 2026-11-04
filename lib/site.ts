@@ -1,6 +1,8 @@
 export const SITE_URL = "https://sohee.ai.kr";
 export const CONTACT_EMAIL = "support@sohee.ai.kr";
 export const LEGAL_EFFECTIVE_DATE = "2026년 10월 7일";
+export const PRIVACY_NOTICE_DATE = "2026년 11월 4일";
+export const PRIVACY_EFFECTIVE_DATE = "2026년 11월 4일";
 
 /** Public URLs are served at the domain root; the worker maps them onto the /landing basePath. */
 export const canonical = (path: string) =>
