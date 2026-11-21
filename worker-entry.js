@@ -1,4 +1,5 @@
 import openNextWorker from "./.open-next/worker.js";
+import { resolveDeviceRedirect } from "./device-redirect.js";
 
 const APEX = "sohee.ai.kr";
 
@@ -30,6 +31,22 @@ const stripTrailingSlash = (path) =>
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    // Phones never see the PC site: send them to the mobile app host (before www -> apex).
+    if (request.method === "GET" || request.method === "HEAD") {
+      const mobile = resolveDeviceRedirect(
+        request.headers.get("host") || url.host,
+        request.headers.get("user-agent"),
+        url.pathname,
+        url.search,
+      );
+      if (mobile) {
+        return new Response(null, {
+          status: 307,
+          headers: { location: mobile, vary: "User-Agent", "cache-control": "private, no-store" },
+        });
+      }
+    }
 
     // www -> apex, keeping path and query (utm/fbclid etc.).
     if (url.hostname === `www.${APEX}`) {
